@@ -1,0 +1,40 @@
+# Code Files — Manifest and Flashing Guide
+
+## Repository status
+
+At the time of documentation, `code_files/` contained no source, header, Python, MicroPython, Arduino, or HDL implementation files. Therefore, there are no source files to manifest or annotate yet. Add each implementation file to this directory and extend the manifest below in the same commit.
+
+## File Manifest
+
+| File | Role |
+|---|---|
+| `readme` | This manifest and the quick compilation/flashing guide |
+| `TBD` | ESP32 firmware: Wi-Fi setup, command parsing, motor direction, PWM, timeout stop |
+| `TBD` | Laptop application: camera tracking, game state, projection, and command transport |
+
+## Quick Compilation and Flashing Guide
+
+### ESP32 firmware
+
+1. Add the firmware source file to this directory and document whether it targets Arduino or MicroPython.
+2. Record the board variant, framework version, Wi-Fi configuration method, and required libraries.
+3. For Arduino firmware, open the source in Arduino IDE or PlatformIO, select the ESP32 board and serial port, compile, and upload.
+4. For MicroPython firmware, flash the supported ESP32 image, copy the main script as `main.py`, and reset the board.
+5. Open a serial monitor and verify startup, Wi-Fi connection, GPIO initialization, and the motor-stop timeout.
+6. Test each motor with the vehicle lifted from the ground before connecting the wheels to the play area.
+
+### Laptop application
+
+1. Add the tracking/game source and a dependency file such as `requirements.txt`.
+2. Create an isolated Python environment and install the recorded dependencies.
+3. Configure the camera, play-area calibration, projector output, and ESP32 address.
+4. Start the application and verify marker detection before enabling motor commands.
+5. Run the timeout and emergency-stop tests before the public demonstration.
+
+## Required additions before submission
+
+- Actual firmware and laptop source files
+- Dependency/version records
+- Exact board and port settings
+- Serial output or test evidence
+- A reproducible clean-machine build and flash procedure

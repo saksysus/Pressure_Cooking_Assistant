@@ -1,705 +1,460 @@
-# SKILL LAB PRATICAL HACKATHON
+# Project² — Projected Interactive Engineering Battlefield
 
 ## Final Project README
 
-> **Project Weight:** 100%  
-> **Team Size:** 4/3 students  
-> **Project Duration:** 8 hours  
-> **Total Time Available:** 32 effort-hours per team  
-> **Project Type:** Playful, interactive, technology-based experience
+> **Hackathon:** Skill Lab Practical Hackathon 2026
+> **Project type:** Playful, interactive, technology-based experience
+> **Repository naming rule:** Rename the fork to `SKILLLAB_PROR-2026-TeamName`.
+> **Documentation rule:** Complete every section; write `Not applicable` with an explanation where necessary.
 
----
+## 1. Team Identity
 
-# Before you begin
+### 1.1 Studio / Group Name
 
-## Fork and rename this repository
+`Project²`
 
-After forking this repository, rename it using the format:
+### 1.2 Team Members
 
-`SKILLLAB_PROR-2026-TeamName`
+| Name | Primary role | Secondary role | Strengths |
+|---|---|---|---|
+| Gopalakrishnan | Software, electronics | Documentation | Systems thinking, communication |
+| KAder Shaikh | Electronics, fabrication | Software | Hardware integration, fabrication |
 
-### Example
+### 1.3 Project Title
 
-`SKILLLAB_PROR-2026-AuroWizards`
+**Project²: Projected Interactive Engineering Battlefield**
 
-Do not keep the default repository name.
+### 1.4 One-Line Pitch
 
----
+An interactive projected battlefield where a physical, Wi-Fi-controlled vehicle turns engineering learning into a playable challenge.
 
-# How to use this README
+## Executive Summary
 
-This file is your team’s **working project document**.
+| Area | Summary |
+|---|---|
+| Problem | Engineering concepts can be difficult to understand when they are presented only as abstract diagrams or screen simulations. |
+| Deterministic solution | A camera-tracked vehicle, laptop game loop, projector, and ESP32 execute a repeatable sensing → validation → command → actuation loop with a safe motor timeout. |
+| Key quantifiable impact | The final submission must report command latency, tracking update rate/error, timeout duration, MCU utilization, and mission completion rate in [Results and Performance Metrics](#175-results-and-performance-metrics). |
 
-You must keep updating it throughout the build period.  
-By the final review, this README should clearly show:
+### 1.5 Expanded Project Idea
 
-- your idea,
-- your planning,
-- your design decisions,
-- your technical process,
-- your build progress,
-- your testing,
-- your failures and changes,
-- your final outcome.
+Project² combines projection mapping, camera-based tracking, and a small motorized vehicle. A player navigates the vehicle through a projected environment while the laptop handles the game world and the ESP32 handles real-time motion. The experience makes engineering concepts tangible through movement, feedback, obstacles, and repeated problem-solving.
 
-## Rules
+## 2. Philosophy Fit
 
-- Fill every section.
-- Do not delete headings.
-- If something does not apply, write `Not applicable` and explain why.
-- Add images, screenshots, sketches, links, and videos wherever useful.
-- Update task status and weekly logs regularly.
-- Use this file as evidence of process, not only as a final report.
+### 2.1 Experience, Not Social Problem
 
----
+This project is intentionally a playful interactive experience rather than a solution to a large social problem. Its goal is to make engineering exploration engaging, physical, and memorable.
 
-# 1. Team Identity
+## 3. Inspiration
 
-## 1.1 Studio / Group Name
+### 3.1 References
 
-`Project^2`
+| Source | Contribution |
+|---|---|
+| Projection-mapping interactive experiences | Inspired the combination of projected visuals and physical interaction. |
+| PUBG-style battlefield games | Inspired the obstacle, mission, and progression structure. |
+| Camera-tracked robotics projects | Inspired marker-based position tracking and feedback. |
 
-## 1.2 Team Members
+### 3.2 Original Twist
 
-| Name           | Primary Role                    | Secondary Role | Strengths Brought to the Project |
-| -------------- | ------------------------------- | -------------- | -------------------------------- |
-| `Gopalakrishnan` | `[Electronics / Coding / App ]` | `Documentation`  | `Documentation, Gift of Gab `|
-| `KAder Shaikh`  | `[Electronics / Fabrication]`   | `[Coding]`     | `Material Handling, Hardware`    |
+The project connects a projected digital battlefield to a real moving vehicle. The player does not only control a screen avatar: the physical machine, its motors, the projection, and the camera-tracking loop all participate in the experience.
 
-## 1.3 Project Title
+## 4. Project Intent
 
-`"Project Project"`
+### 4.1 User Journey
 
-`(because Project-or)`
+1. The user starts the laptop game and places the vehicle in the marked play area.
+2. The camera detects the vehicle marker and the projected battlefield appears.
+3. The user sends movement commands through the game interface.
+4. The ESP32 drives the motors while the camera updates the vehicle position.
+5. The game checks boundaries, obstacles, and objectives, then provides projected feedback.
+6. The user completes or restarts the mission and iterates on their strategy.
 
-<img width="1600" height="1131" alt="image" src="https://github.com/user-attachments/assets/c64bfbd4-b3b7-43d9-83ad-c203a5aa11bc" />
+## 5. Definition of Success
 
-## 1.4 One-Line Pitch
+### 5.1 Definition of “Usable”
 
-`A projected, fully customizable time portal where engineering education is done through PUBG battlefield in the comfort of our home`
+The system is usable when a new player can start a session, control the vehicle, see the projected environment, understand the objective, and recover safely when communication or tracking stops.
 
-## 1.5 Expanded Project Idea
+### 5.2 Minimum Usable Version
 
-In 1–2 paragraphs, explain:
+The minimum version is a stable ESP32-controlled two-motor vehicle, a laptop control interface, a camera-tracked play area, and a projected obstacle course with one completable objective.
 
-- what your project is,
-- what kind of experience it creates,
-- what technologies are involved.
+### 5.3 Stretch Features
 
-**Response:**  
-`A projected and fully customizable time portal can transform engineering education into an immersive PUBG-style battlefield experience from the comfort of home. In this environment, students can learn engineering concepts by entering a virtual battlefield where challenges, obstacles, and missions are designed around real technical problems. Instead of passively studying theory, learners actively apply concepts such as electronics, coding, sensors, robotics, mechanics, and system design to complete missions, solve problems, and progress through different levels. This approach makes engineering education more interactive, engaging, and practical by combining gaming, simulation, and hands-on problem-solving in a familiar and exciting format.`
+- Multiple levels and mission types
+- Collision feedback and scoring
+- More accurate projection calibration
+- Wireless telemetry and replay
+- Additional vehicles or cooperative play
 
----
+## 6. System Overview
 
-# 2. Philosophy Fit
-
-## 2.1 Experience, Not Social Problem
-
-This module does **not** require your project to solve a large social problem.
-
-You are allowed to build:
-
-- toys,
-- games,
-- interactive objects,
-- playful machines,
-- kinetic artifacts,
-- humorous devices,
-- strange but delightful experiences,
-- things that are entertaining to use or watch.
-
-
-
-# 3. Inspiration
-
-## 3.1 References
-
-List what inspired the project.
-
-| Source Type | Title / Link                                                        | What Inspired You                                                                         |
-| ----------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `[Video]`   | `https://www.instagram.com/reel/DW4CT7WCDry/?igsh=cXg3dzAxYmdncDBo` | `How projection mapping can be used to create interactive digital + physical experiences` |
-|             |                                                                     |                                                                                           |
-|             |                                                                     |                                                                                           |
-
-## 3.2 Original Twist
-
-What makes your project original?
-
-**Response:**  
-
-
----
-
-# 4. Project Intent
-
-## 4.1 User Journey 
-
-Describe exactly how a user will use the project.Make it a story
-**Response:**  
-
-                                                  |
-
-
-
----
-
-# 5. Definition of Success
-
-## 5.1 Definition of “Usable”
-
-
-
-## 5.2 Minimum Usable Version
-
-What is the smallest version of this project that still delivers the core experience?
-
-**Response:**  
-
-
-## 5.3 Stretch Features
-
-What features are nice to have but not essential?
-
-
----
-
-# 6. System Overview
-
-## 6.1 Project Type
-
-Check all that apply.
+### 6.1 Project Type
 
 - [x] Electronics-based
-
-- [ ] Mechanical
-
+- [ ] Mechanical-only
 - [x] Sensor-based
-
 - [x] App-connected
-
 - [x] Motorized
-
 - [ ] Sound-based
-
-- [x] Light-based
-
+- [x] Light/projection-based
 - [x] Screen/UI-based
-
 - [x] Fabricated structure
-
-- [x] Game logic based
-
+- [x] Game-logic-based
 - [x] Installation
+- [ ] FPGA-based
 
-- [ ] Other:
+### 6.2 High-Level System Description
 
-## 6.2 High-Level System Description
+The camera observes the physical vehicle and the laptop converts its position into game coordinates. The laptop renders the projected battlefield and sends movement commands over Wi-Fi. The ESP32 translates those commands into PWM motor control. A command timeout stops the motors so loss of communication fails safely.
 
-Explain how the system works in simple terms.
+### 6.3 Input / Output Map
 
-Include:
+| System part | Type | Function |
+|---|---|---|
+| Camera | Input/sensing | Detects the vehicle marker and pose |
+| Laptop game | Processing/UI | Tracks state, renders projection, sends commands |
+| ESP32 | MCU/PS processing | Receives commands and controls motor outputs |
+| L298N | Actuation driver | Provides bidirectional motor drive |
+| Two BO motors | Actuation | Move the vehicle |
+| Projector | Output | Displays the battlefield, obstacles, and feedback |
 
-- input,
-- processing,
-- output,
-- physical structure,
-- app interaction if any.
+## 7. Sketches and Visual Planning
 
-**Response:**  
+### 7.1 Concept Sketch
 
-## 6.3 Input / Output Map
+Replace this line with the uploaded concept sketch:
 
-| System Part                              | Type            | What It Does                                                               |
+`[Missing asset: ./images/concept-sketch.png]`
 
+### 7.2 Labeled Build Sketch
 
----
+Replace this line with a labeled build sketch showing structure, electronics, user touch points, moving parts, and outputs:
 
-# 7. Sketches and Visual Planning
+`[Missing asset: ./images/labeled-build-sketch.png]`
 
-## 7.1 Concept Sketch
+### 7.3 Approximate Dimensions
 
-Add an early sketch of the full idea.
+| Dimension | Current value |
+|---|---:|
+| Length | 16 cm |
+| Width | 16 cm |
+| Height | 8 cm |
+| Estimated weight | 400 g |
 
-**Insert image below:**  
-`[Upload image and link here]`
+## 8. Electronics Planning
 
-Example:
+### 8.0 Hardware Setup
 
-```md
+Mount the two motor-and-wheel assemblies to the vehicle chassis, connect both motors to the L298N output terminals, connect the L298N control inputs to the documented ESP32 pins, and route regulated power from the buck converter to the ESP32. Place the camera so the full marked play area is visible and align the projector with the same area. Verify common ground, polarity, and an emergency motor stop before testing.
 
+### 8.1 Electronics Used
+
+| Component | Quantity | Purpose |
+|---|---:|---|
+| ESP32, 38-pin | 1 | Wi-Fi command receiver and motor controller |
+| L298N motor driver | 1 | Bidirectional drive and PWM speed control |
+| BO motor and wheel assemblies | 2 | Vehicle propulsion |
+| Buck converter | 1 | Regulated ESP32 supply |
+| Li-ion battery pack and holder | 1 | Portable power |
+| Laptop | 1 | Game logic, camera processing, and projection |
+| Camera | 1 | Vehicle tracking |
+| Projector | 1 | Battlefield display |
+
+### 8.2 Hardware-Software Co-Design Breakdown
+
+| Layer | Responsibility | Implementation | Verification evidence |
+|---|---|---|---|
+| FPGA / PL | Hardware acceleration or programmable logic | Not applicable; no FPGA source or board is present in this repository | Mark not applicable in the final submission |
+| MCU / PS | Command parsing, timeout safety, PWM, direction control | ESP32 firmware (source not yet present) | Firmware flash log and motor test |
+| Sensing | Vehicle pose and position | Camera plus marker detection on the laptop | Tracking screenshot/video and measured error |
+| Actuation | Physical movement and visual feedback | L298N, two BO motors, projector | GPS-tagged hardware photos and movement test |
+
+### 8.3 Wiring Plan
+
+The ESP32 uses GPIO 18, 19, 22, and 23 for motor direction signals IN1–IN4, and GPIO 25 and 26 for ENA/ENB PWM speed control. The motor driver is powered from the battery pack; the ESP32 is supplied through the buck converter. All grounds must be common. The laptop connects the camera and projector and communicates with the ESP32 over Wi-Fi.
+
+### 8.4 Circuit Diagram
+
+`[Missing asset: ./images/circuit-diagram.png]`
+
+### 8.5 Pinout Configuration
+
+| ESP32 pin | Signal | Connected component | Purpose |
+|---:|---|---|---|
+| GPIO 18 | IN1 | L298N | Left motor direction |
+| GPIO 19 | IN2 | L298N | Left motor direction |
+| GPIO 22 | IN3 | L298N | Right motor direction |
+| GPIO 23 | IN4 | L298N | Right motor direction |
+| GPIO 25 | ENA | L298N | Left motor PWM |
+| GPIO 26 | ENB | L298N | Right motor PWM |
+| GND | Ground | Battery, driver, ESP32 | Common reference |
+
+Board reference image:
+
+<p align="center">
+  <img src="./images/Shrike-9-1-768x628.png" width="400" alt="Shrike board reference; upload the missing image before submission">
+</p>
+
+## 9. Power Plan
+
+| Question | Response |
+|---|---|
+| Power source | Li-ion battery pack |
+| Motor voltage | Approximately 6–8.4 V through the motor driver |
+| MCU voltage | Regulated 5 V through the buck converter |
+| Current concern | Motor startup current can cause voltage drops and Wi-Fi instability |
+| Safety | Protect against shorts and over-discharge; secure all wiring before operation |
+
+## 10. Software Planning
+
+### 10.1 Software Tools
+
+| Tool/platform | Purpose |
+|---|---|
+| MicroPython or Arduino-compatible ESP32 firmware | Motor control and Wi-Fi endpoint |
+| Python, Pygame, and OpenCV | Game logic, marker tracking, and projection |
+| CAD/fabrication tools | Vehicle and enclosure design |
+
+### 10.2 Software Logic
+
+The firmware initializes GPIO and PWM, starts Wi-Fi, accepts movement commands, and stops the motors after a short command timeout. The laptop captures camera frames, detects the marker, maps the pose into game coordinates, evaluates obstacles, renders the projection, and sends permitted commands. A reset returns the vehicle and game state to a known starting condition.
+
+### 10.3 Step-by-Step Methodology and Algorithm Execution Flow
+
+1. Initialize camera, projection, game state, Wi-Fi, GPIO, and PWM.
+2. Capture a camera frame and detect the vehicle marker.
+3. Convert marker position and orientation into play-area coordinates.
+4. Read player input and validate the requested move against boundaries and obstacles.
+5. Send the allowed command to the ESP32.
+6. Set motor direction and PWM duty cycle.
+7. Refresh the projected scene and record the current state.
+8. Stop motors on timeout, invalid state, emergency reset, or loss of communication.
+9. Repeat until the mission is complete or restarted.
+
+## Repository Directory Tree
+
+```text
+.
+├── Instructions.md
+├── README.md
+├── code_files/
+│   └── readme
+├── docs/
+│   └── .gitkeep
+└── images/
+    └── .gitkeep
 ```
 
+## Prerequisites and Build / Flash Instructions
 
+The current checkout contains documentation only; implementation files and dependency manifests are still required. Before the final submission, add the ESP32 firmware and laptop application to `code_files/`, then follow the reproducible guide in [`code_files/readme`](./code_files/readme). Required prerequisites are an ESP32 toolchain, USB serial access, Python with the recorded tracking/game dependencies, a camera, and a projector.
 
-## 7.2 Labeled Build Sketch
+## 11. Bill of Materials
 
-Add a sketch with labels showing:
+### 11.1 Full BOM
 
-- structure,
-- electronics placement,
-- user touch points,
-- moving parts,
-- output elements.
+| Item | Qty | In kit? | Buy? | Estimated cost | Specification | Rationale |
+|---|---:|---|---|---:|---|---|
+| ESP32 | 1 | Yes | No | 0 | 38-pin board | Wi-Fi MCU and PWM |
+| L298N | 1 | Yes | No | 0 | Dual H-bridge | Drives both motors |
+| BO motors and wheels | 2 | No | Yes | 150 | 6 cm wheels | Continuous vehicle motion |
+| Buck converter | 1 | No | Yes | 75 | Adjustable regulator | Stable MCU supply |
+| Li-ion battery pack/holder | 1 | No | Yes | 200 | Protected pack preferred | Portable power |
+| Projector | 1 | Shared | No | 0 | External display | Projects game world |
+| Camera | 1 | Shared | No | 0 | Webcam or phone | Marker tracking |
 
-**Insert image below:**  
-`[Upload image and link here]`
-<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/95637f31-b4e7-4427-a9e1-4b63fbeb0ac5" />
+### 11.2 Material Justification
 
-## 7.3 Approximate Dimensions
+DC motors provide continuous rotation for a small vehicle and are simpler for differential drive than steppers. The L298N supplies bidirectional control and PWM speed control. Camera tracking avoids requiring the ESP32 to estimate its own global position.
 
-| Dimension        | Value   |
-| ---------------- | ------- |
-| Length           | `16 cm` |
-| Width            | `16 cm` |
-| Height           | `8 cm`  |
-| Estimated weight | `400 g` |
+### 11.3 Items You Chose
 
----
+| Item | Why needed | Procurement/status |
+|---|---|---|
+| BO motors and wheels | Vehicle drive | Report final vendor and receipt status |
+| Buck converter | Stable ESP32 supply | Report final vendor and receipt status |
+| Li-ion battery pack | Portable power | Report chemistry, protection, and receipt status |
 
-# 8. Electronics Planning
+### 11.4 Budget Summary
 
-## 8.1 Electronics Used
+| Budget item | Estimated cost |
+|---|---:|
+| Electronics | 400 |
+| Mechanical parts | 200 |
+| Fabrication materials | 0 (available on campus) |
+| Purchased extras | 0 |
+| Contingency | 300 |
+| **Total** | **900** |
 
-| Component                 | Quantity | Purpose                               |
-| ------------------------- | --------:| ------------------------------------- |
-| `[ESP32]`                 | `1`      | `[Main controller]`                   |
-| `[L298N Motor Driver]`    | `1`      | `[Control Motors]`                    |
-| `[BO Motors]`             | `2`      | `[Rotate wheels]`                     |
-| `[Buck Converter]`        | `1`      | `[Power ESP32]`                       |
-| `[Li Ion Battery Pack]`   | `2`      | `[Power]`                             |
-| `[Projector]`             | `1`      | `[Display obstacles]`                 |
-| `Camera (Webcam / Phone)` | `1`      | `[Tracks car position using markers]` |
+### 11.5 Budget Reflection
 
-## 8.2 Wiring Plan
+The design minimizes cost by using shared laptop, camera, and projector equipment. If the budget is reduced, retain the ESP32, driver, motors, and safe power regulation first; simplify the enclosure and projection environment before removing safety-critical hardware.
 
-Describe the main electrical connections.
+## 12. Planning the Work
 
-**Response:**  
-`The ESP32 is connected to the motor driver (L298N) using four GPIO pins (18,19; 22,23) to control motor direction (IN1, IN2, IN3, IN4). Two PWM-capable pins (ENA and ENB; 25 and 26) are connected to control the speed of each motor.
+### 12.1 Team Working Agreement
 
-The motors are connected to the output terminals of the motor driver. The motor driver is powered directly by the battery pack (higher voltage), while the ESP32 receives regulated 5V from the buck converter.
+Divide hardware, software, fabrication, testing, and documentation into owned tasks. Review the build after each two-hour block, record failures as well as successes, and commit incremental progress rather than waiting until the final hour.
 
-All components share a common ground to ensure stable operation. The projector and camera are connected to the laptop, which handles tracking and game logic separately.`
+### 12.2 Task Breakdown
 
-## 8.3 Circuit Diagram
+| Task | Owner | Dependency | Status |
+|---|---|---|---|
+| Finalize interaction and play area | Both | None | Complete |
+| Assemble vehicle and motor driver | KAder Shaikh | BOM | Report final status |
+| Implement firmware | Gopalakrishnan | Wiring | Source missing |
+| Implement tracking and game loop | Gopalakrishnan | Camera setup | Source missing |
+| Integrate and test | Both | Hardware and software | Report final status |
+| Capture evidence and finalize README | Both | Working prototype | In progress |
 
-Insert a hand-drawn or software-made circuit diagram.
+### 12.3 Responsibility Split
 
-**Insert image below:**  
-`[Upload image and link here]`
-<img width="867" height="1156" alt="" src="" />
+| Area | Main owner | Support owner |
+|---|---|---|
+| Concept | Gopalakrishnan | KAder Shaikh |
+| Electronics | KAder Shaikh | Gopalakrishnan |
+| Coding | Gopalakrishnan | KAder Shaikh |
+| Mechanical build | KAder Shaikh | Gopalakrishnan |
+| Testing | Both | — |
+| Documentation | Gopalakrishnan | KAder Shaikh |
 
+## 13. 2-Hour Milestones
 
-# 9. Power Plan
+### 13.1 8-Hour Plan
 
-| Question         | Response                                                                                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power source     | `Battery (Li-ion pack)`                                                                                                                           |
-| Voltage required | `~6–8.4V for motors (via driver), stepped down to 5V for ESP32 (buck converter)`                                                                  |
-| Current concerns | `Motors can draw high current under load, which may cause voltage drops affecting ESP32 and WiFi stability`                                       |
-| Safety concerns  | `Avoid over-discharging Li-ion batteries, ensure proper voltage regulation, prevent short circuits, and secure wiring to avoid loose connections` |
+| Block | Deliverable |
+|---|---|
+| Hours 0–2 | Finalize concept, sketch, BOM, and feasibility test |
+| Hours 2–4 | Test electronics, build vehicle, and begin software |
+| Hours 4–6 | Integrate camera, game loop, projection, and vehicle |
+| Hours 6–8 | Playtest, fix failures, capture evidence, and complete documentation |
 
----
+### 13.2 Update Log
 
-# 10. Software Planning
+| Date/block | Planned goal | Actual result | Change | Next step |
+|---|---|---|---|---|
+| TBD | Complete after each work block | TBD | TBD | TBD |
 
-## 10.1 Software Tools
+## 14. Risks and Unknowns
 
-| Tool / Platform                | Purpose                                        |
-| ------------------------------ | ---------------------------------------------- |
-| `[MicroPython]`                | `Control ESP32`                                |
-| `[Python/PyGame/OpenCV]`       | `Track markers, game logic, create projection` |
-| `[Fusion/Blender/Illustrator]` | `[Prototyping structure]`                      |
-|                                |                                                |
+### 14.1 Risk Register
 
-## 10.2 Software Logic
+| Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|
+| Wi-Fi instability | Medium | High | Stable power, short command timeout, safe stop |
+| Motor noise or voltage drop | Medium | High | Separate regulated supply path and common ground |
+| Marker occlusion | Medium | Medium | Improve lighting, marker placement, and camera angle |
+| Projection misalignment | Medium | Medium | Calibrate play-area corners before each demo |
+| Loose wiring | Low | High | Strain relief and preflight inspection |
 
-Describe what the code must do.
+### 14.2 Biggest Unknown Right Now
 
-Include:
+The repository does not contain the firmware, tracking code, measured performance logs, or final evidence photos. These must be added and verified before the final commit.
 
-- startup behavior,
-- input handling,
-- sensor reading,
-- decision logic,
-- output behavior,
-- communication logic,
-- reset behavior.
+## 15. Testing
 
-**Response:**  
-`
+### 15.1 Technical Testing Plan
 
-- **Startup behavior:**  
-  The ESP32 initializes motor pins, PWM control, and starts a WiFi access point with a web server. The laptop initializes camera input, tracking system, and projection mapping.
-- **Input handling:**  
-  Movement commands are received from the laptop (pygame sends http requests)
-- **Sensor reading:**  
-  The camera continuously captures frames, and OpenCV detects ArUco markers to determine the car’s position and orientation.
-- **Decision logic:**  
-  The system maps the car’s position into a virtual coordinate system and checks for nearby obstacles or collisions. If movement is valid, the command is allowed; if not, it is blocked or replaced with a feedback action (like a slight shake).
-- **Output behavior:**  
-  The ESP32 drives the motors using PWM signals to control speed and direction. The projector displays the updated game environment, including obstacles, targets, and feedback visuals.
-- **Communication logic:**  
-  The laptop sends HTTP requests (e.g., `/forward`, `/left`) to the ESP32 over WiFi. The ESP32 parses these commands and executes motor actions.
-- **Reset behavior:**  
-  If no command is received within a short timeout, the ESP32 stops the motors. The game resets when a level is completed or restarted.`
+| What needs testing | Method | Success condition |
+|---|---|---|
+| Wi-Fi command path | Send each movement endpoint repeatedly | Correct motor response with no unsafe stale motion |
+| Motor direction/PWM | Test each channel independently | Direction and speed match the command |
+| Timeout safety | Stop sending commands | Motors stop within the documented timeout |
+| Marker tracking | Move vehicle through the full area | Position remains within the documented error |
+| Collision logic | Approach each obstacle | Invalid move is blocked or reported |
+| Projection alignment | Compare projected and physical landmarks | All play-area boundaries are usable |
 
-## 10.3 Code Flowchart
+### 15.2 Testing and Debugging Log
 
-Insert a flowchart showing your code logic.
+| Date | Problem | Type | Action | Result | Next action |
+|---|---|---|---|---|---|
+| TBD | Add one row per test | TBD | TBD | TBD | TBD |
 
-Suggested sequence:
+### 15.3 Playtesting Notes
 
-- start,
-- initialize,
-- wait for input,
-- read input,
-- decision,
-- trigger output,
-- repeat or reset,
-- error handling.
+| Tester | Action | Confusion | Enjoyment | Change |
+|---|---|---|---|---|
+| TBD | TBD | TBD | TBD | TBD |
 
-**Insert image below:**  
-<img width="1600" height="1200" alt="image" src="" />
-<img width="1600" height="1200" alt="image" src="" />
+## 16. Build Documentation
 
+### 16.1 Fabrication Process
 
+Document CAD or sketching, cutting, assembly, fastening, wiring, surface finishing, projection setup, and revisions. Keep the vehicle modular so electronics can be replaced without damaging the structure.
 
+### 16.2 Build Photos
 
-# 11. Bill of Materials
+Add dated photos for the concept, wiring, vehicle, tracking setup, testing, and final build. Use repository-relative links only after uploading the files to `images/`.
 
-## 11.1 Full BOM
+## 17. Final Outcome
 
-| Item                             | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec               | Why This Choice?          |
-| -------------------------------- | --------:| ------- | ------------ | --------------:| ----------------------------- | ------------------------- |
-| `[ESP32]`                        | `1`      | `Yes`   | `No`         | `0`            | `38 Pin ESP32`                | `[To control components]` |
-| `[Motor Driver]`                 | `[1]`    | `[Yes]` | `[No]`       | `0`            | `[LN296]`                     | `[To drive both motors]`  |
-| `[DC Motors and wheel]`          | `[2]`    | `[No]`  | `[Yes]`      | `[150]`        | `[BO Motors and 6 cm wheels]` | `[high torque motors]`    |
-| `[Buck Converter]`               | `[1]`    | `[No]`  | `[Yes]`      | `[75]`         |                               |                           |
-| `[Li-ion batteries with holder]` | `[1]`    | `[No]`  | `[Yes]`      | `[200]`        |                               |                           |
+### 17.1 Final Description
 
-## 11.2 Material Justification
+Project² is a projected, camera-tracked battlefield in which a physical Wi-Fi-controlled vehicle completes a visual mission. The final description must be updated after the last integrated test.
 
-Explain why you selected your main materials and components.
+### 17.2 What Works Well
 
-**Response:**  
-`DC motors (BO motors) were chosen instead of servos or steppers because the system requires continuous rotation for movement rather than precise angular control (Previously, we were considering using steppers as we were planning on tracking movement on the ESP using its relative position from an origin, but since we're using a camera now, this is not required). A motor driver (L298N) was used to allow bidirectional control and speed variation using PWM.`
+Report verified strengths with evidence, such as repeatable motor control, clear projection, reliable tracking, or successful first-time user completion.
 
+### 17.3 What Still Needs Improvement
 
-## 11.3 Items You chose
+Report observed limitations, measured where possible: tracking error, response latency, projection calibration, battery life, or mechanical stability.
 
-| Item                 | Why Needed               | Purchase Link | Latest Safe Date to Procure | Status       |
-| -------------------- | ------------------------ | ------------- | --------------------------- | ------------ |
-| `BO Motors + Wheels` | `Drive system for car`   | `robu.in`     | `15th April`                | `[Received]` |
-| `Buck Converter`     | `Stable power for ESP32` | `local store` | `before testing`            | `[Received]` |
-| `Li-ion Batteries`   | `Portable power`         | `local store` | `before testing`            | `Recieved`   |
+### 17.4 What Changed From the Original Plan
 
-## 11.4 Budget Summary
+The design moved from local position estimation toward camera-based tracking, allowing the vehicle to be controlled by a simpler differential-drive platform while the laptop maintains global game state.
 
-| Budget Item           | Estimated Cost              |
-| --------------------- | ---------------------------:|
-| Electronics           | `[400]`                     |
-| Mechanical parts      | `[200]`                     |
-| Fabrication materials | `[0 (Available on campus)]` |
-| Purchased extras      | `[0]`                       |
-| Contingency           | `[300]`                     |
-| **Total**             | `[900]`                     |
+### 17.5 Results and Performance Metrics
 
-## 11.5 Budget Reflection
+| Metric | Measured result | Target/method |
+|---|---|---|
+| Command-to-motor latency | TBD | Measure from laptop request to motor response |
+| Tracking update rate | TBD | Record camera/game loop frequency |
+| Position error | TBD | Compare detected pose with marked reference points |
+| Command timeout | TBD | Measure stop time after communication loss |
+| MCU resource utilization | TBD | Record firmware memory/CPU usage |
+| Mission completion rate | TBD | Test with at least three runs |
 
-If your cost is too high, what can be simplified, removed, substituted, or shared?
+### 17.6 GPS-Tagged Hardware Verification Photos
 
-**Response:**  
+Upload GPS-tagged photos to `images/` and replace the missing links below. Do not claim GPS verification unless the metadata has been checked.
 
----
+| Photo 1 | Photo 2 |
+|---|---|
+| `[Missing: ./images/gps-hardware-front.jpg]` | `[Missing: ./images/gps-hardware-rear.jpg]` |
+| `[Missing: ./images/gps-test-setup.jpg]` | `[Missing: ./images/gps-final-demo.jpg]` |
 
-# 12. Planning the Work
+## 18. Reflection
 
-## 12.1 Team Working Agreement
+### 18.1 Team Reflection
 
-Write how your team will work together.
+Complete after the final review: what worked in the collaboration, what slowed the team down, and how the work was divided.
 
-Include:
+### 18.2 Technical Reflection
 
-- how tasks are divided,
-- how decisions are made,
-- how progress will be checked,
-- what happens if a task is delayed,
-- how documentation will be maintained.
+Complete after testing: lessons about Wi-Fi control, PWM, camera tracking, projection, power, and integration.
 
-**Response:**  
+### 18.3 Design Reflection
 
+Complete after playtesting: lessons about clarity, delight, physical interaction, accessibility, and iteration.
 
-## 12.2 Task Breakdown
+### 18.4 If You Had One More Hour
 
-| Task ID | Task                    | Owner    | Estimated Hours | Deadline     | Dependency | Status |
-| ------- | ----------------------- | -------- | ---------------:| ------------ | ---------- | ------ |
-| T1      | `[Finalize concept]`    | `[Both]` | `2`             | `1st April`  | `None`     | `Done` |
+Prioritize measured calibration, a safer enclosure, clearer onboarding, and one additional playable mission.
 
+## 19. Final Submission Checklist
 
-## 12.3 Responsibility Split
-
-| Area                 | Main Owner | Support Owner |
-| -------------------- | ---------- | ------------- |
-| Concept              | `[Gopal]`  | `[Kader]`    |
-| Electronics          | `[]`       | `[]`     |
-| Coding               | `[]`       | `[]`     |
-| Mechanical build     | `[]`       | `[]`    |
-| Testing              | `[]`       | `[]`    |
-| Documentation        | `[]`       | `[]`     |
-
----
-
-# 13. 2 hour Milestones
-
-## 13.1 8-hour Plan
-
-### Bi Hour 1 — Plan and De-risk
-
-Expected outcomes:
-
-- [x] Idea finalized
-- [x] Core interaction decided
-- [x] Sketches made
-- [x] BOM completed
-- [x] Purchase needs identified
-- [ ] Key uncertainty identified
-- [x] Basic feasibility tested
-
-### Bi Hour 2 — Build Subsystems
-
-Expected outcomes:
-
-- [x] Electronics tests completed
-- [ ] CAD / structure planning completed
-- [ ] App UI started if needed
-- [x] Mechanical concept tested
-- [x] Main subsystems partially working
-
-### Bi Hour 3 — Integrate
-
-Expected outcomes:
-
-- [x] Physical body built
-- [x] Electronics integrated
-- [x] Code connected to hardware
-- [ ] App connected if required
-- [x] First playable version exists
-
-### Bi Hour 4 — Refine and Finish
-
-Expected outcomes:
-
-- [x] Technical bugs reduced
-- [x] Playtesting completed
-- [x] Improvements made
-- [x] Documentation completed
-- [x] Final build ready
-
-## 13.2  Update Log
-
-| Week   | Planned Goal   | What Actually Happened | What Changed   | Next Steps     |
-| ------ | -------------- | ---------------------- | -------------- | -------------- |
-| Week 1 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Week 2 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Week 3 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-| Week 4 | `[Write here]` | `[Write here]`         | `[Write here]` | `[Write here]` |
-
----
-
-# 14. Risks and Unknowns
-
-## 14.1 Risk Register
-
-| Risk                                                            | Type         | Likelihood | Impact   | Mitigation Plan                                                                       | Owner                |
-| --------------------------------------------------------------- | ------------ | ---------- | -------- | ------------------------------------------------------------------------------------- | -------------------- |
-| WiFi connection between laptop and ESP32 becomes unstable       | `Technical`  | `Medium`   | `High`   | Keep ESP32 close, ensure stable power supply, reduce network load, add fail-safe stop | `[Gopal]`           |
-
-
-## 14.2 Biggest Unknown Right Now
-
-What is the single biggest uncertainty in your project at this stage?
-
-**Response:**  
-
-
----
-
-# 15. Testing 
-
-## 15.1 Technical Testing Plan
-
-| What Needs Testing     | How You Will Test It                                                                 | Success Condition                                                                                    |
-| ---------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| `[Wifi connection]`    | `[Check if motor spins via app button]`                                              | `[Both motors accurately respond to wifi signals]`                                                   |
-                       |
-## 15.2 Testing and Debugging Log
-
-| Date          | Problem Found                         | Type         | What You Tried                                | Result               | Next Action                                    |
-| ------------- | ------------------------------------- | ------------ | --------------------------------------------- | -------------------- | ---------------------------------------------- |
-| `18th April`  | `Car not balancing properly`          | `Mechanical` | `Add low-friction caster support to one side` | `Worked`             | `improve caster structure`                     |
-
-
-## 15.3 Playtesting Notes
-
-| Tester      | What They Did                        | What Confused Them                    | What They Enjoyed                         | What You Will Change                          |
-| ----------- | ------------------------------------ | ------------------------------------- | ----------------------------------------- | --------------------------------------------- |
-| `Gopal` | `Tried navigating through obstacles` | `Some obstacles ewren't clear enough` | `Liked projection + real car interaction` | `Add a slight red highlight around obstacles` |
-
-
----
-
-# 16. Build Documentation
-
-## 16.1 Fabrication Process
-
-Describe how the project was physically made.
-
-Include:
-
-- cutting,
-- 3D printing,
-- assembly,
-- fastening,
-- wiring,
-- finishing,
-- revisions.
-
-**Response:**  
-`The fabrication process involved designing, manufacturing, assembling, and refining both the physical structure and electronic integration of the system.`
-
-`Design (CAD Modeling):
-The initial model was created using CAD software, where components were designed based on the actual dimensions of the electronic parts. This ensured accurate fitting and minimized errors during assembly.
-Cutting (Laser Cutting):
-The designed parts were fabricated using laser cutting techniques. Sheets were cut precisely according to the CAD model to create the structural base and mounts for components.`
-
-`Components were fixed using adhesives and mechanical supports. Certain parts were intentionally kept modular (not permanently fixed) to allow easy replacement and modification of electronics.
-Surface Finishing:
-Some parts were sanded to smooth rough edges after cutting. Sawdust mixed with adhesive was used to fill gaps and uneven edges, improving structural finish. The final structure was then painted for better aesthetics and durability.`
-
-`Environment Setup (Dark Room Fabrication):
-To enhance projection visibility, a controlled dark environment was created using Z-boards, paper sheets, and bedsheets. This minimized external light interference and improved projection clarity.
-Revisions and Iterations:
-Multiple adjustments were made throughout the process, including refining alignment, improving structural stability, repositioning components, and optimizing the interaction between the physical car and projected environment.`
-
-## 16.2 Build Photos
-
-Add photos throughout the project.
-
-Suggested images:
-
-- early sketch,
-- prototype,
-- electronics testing,
-- mechanism test,
-- app screenshot,
-- final build.
-- <img width="960" height="1280" alt="WhatsApp Image 2026-04-24 at 9 46 02 AM (1)" src="https://github.com/user-attachments/assets/74baa570-5770-483e-be6d-d2f03386e37c" />
-
-
-
-
-
-# 17. Final Outcome
-
-## 17.1 Final Description
-
-Describe the final version of your project.
-
-**Response:**  
-
-
-## 17.2 What Works Well
-
-
-
-## 17.3 What Still Needs Improvement
-
-
-## 17.4 What Changed From the Original Plan
-
-How did the project change from the initial idea?
-
-**Response:**  
-
-
----
-
-# 18. Reflection
-
-## 18.1 Team Reflection
-
-What did your team do well?  
-What slowed you down?  
-How well did you manage time, tasks, and responsibilities?
-
-**Response:**  
-
-
-## 18.2 Technical Reflection
-
-What did you learn about:
-
-- electronics,
-- coding,
-- mechanisms,
-- fabrication,
-- integration?
-
-**Response:**  
-
-
-## 18.3 Design Reflection
-
-What did you learn about:
-
-- designing ,
-- delight,
-- clarity,
-- physical interaction,
-- understanding,
-- iteration?
-
-**Response:**  
-
-
-## 18.4 If You Had One More hour
-
-What would you improve next?
-
-**Response:**  
-
-` `
-
----
-
-# 19. Final Submission Checklist
-
-Before submission, confirm that:
-
-- [x] Team details are complete
-- [x] Project description is complete
-- [x] Inspiration sources are included
-- [x] Sketches are added
-- [x] BOM is complete
-- [x] Purchase list is complete
-- [x] Budget summary is complete
-- [x] Mechanical planning is documented if applicable
-- [ ] App planning is documented if applicable
-- [x] Code flowchart is added
-- [x] Task breakdown is complete
-- [x] Weekly logs are updated
-- [x] Risk register is complete
-- [x] Testing log is updated
-- [x] Playtesting notes are included
-- [x] Build photos are included
-- [x] Final reflection is written
-<img width="1131" height="1600" alt="image" src="" />
-
----
-
-
----
-
-
+- [ ] Repository renamed using the required team format
+- [x] Mandatory README headings retained
+- [x] Team identity and project intent documented
+- [x] Architecture, BOM, pinout, power, and methodology documented
+- [ ] Source files uploaded to `code_files/`
+- [ ] Firmware and tracking instructions verified on a clean machine
+- [ ] Concept, circuit, build, and flowchart images uploaded
+- [ ] GPS-tagged hardware verification photos uploaded
+- [ ] Measured latency, tracking, and resource metrics added
+- [ ] Testing, playtesting, update log, and reflection completed
+- [ ] Placeholder and broken links removed
